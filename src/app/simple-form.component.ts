@@ -10,12 +10,15 @@ import { TitleService } from './title.service';
 
 
 export class SimpleFormComponent {
-  public tr = 'esss';
+  public titleList = [{}];
 
   constructor(private titleService: TitleService) {
   }
   ngOnInit() {
-    console.log("HI");
+    this.titleService.getTitles().subscribe(
+      (titles) => this.titleList = titles
+    );
+    console.log(this.titleList);
   }
    public tests(event) {
     console.log("dddddd" + event);
