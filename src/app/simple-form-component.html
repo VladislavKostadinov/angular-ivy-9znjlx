@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="simple-form.component.css">
+<div class="container">
+  <div class="innerContainer">
+<h1>Aareon Angular Test</h1>
+<form>
+  <div class="form">
+    <div class="multiSelectData">
+      <label>Title</label>
+      <select>
+        <option value="">-- Select an option --</option>
+        <p>{{ tr }}</p>
+        <!-- TODO: add titles to dropdown -->
+      </select>
+    </div>
+    <div class="inputData">
+      <label>First name</label>
+      <input type="text" class="textField" placeholder="First name"/>
+    </div>
+    <div class="inputData">
+      <label>Last name</label>
+      <input type="text" class="textField" placeholder="Last name"/>
+    </div>
+    <!-- TODO: add error message -->
+    <span></span>
+    <div class="checkBtn">
+      <input type="checkbox" class="checkBox"/>
+      <label class="acceptCnd">I accept the terms & conditions</label>
+    </div>
+    <div>
+      <button (click)='tests($event)'>Submit</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>  
+<button (click)="tests($event)" type="button">Click</button>
+<p>{{ tr }} </p>

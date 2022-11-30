@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.inputData {
+  margin-bottom: 10px;
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.multiSelectData {
+  margin-bottom: 10px;
+}
+
+.textField {
+  width: 350px;   
+  float: right;
+}
+form {
+  display: flex;
+
+}
+
+select {
+  margin-left: 66.5px;
+}
+
+.acceptTerms {
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+.checkBox {
+  float: left !important;
+  width: 20px !important;
+}
+
+button {
+  float: right;
+}
+
