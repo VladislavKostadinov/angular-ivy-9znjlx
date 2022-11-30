@@ -10,24 +10,28 @@ import { TitleService } from './title.service';
 
 
 export class SimpleFormComponent {
-  public titleList = [{}];
+  public titleListObserv = [{}];
+  public results = [];
+  public finalTitlesList = [];
 
   constructor(private titleService: TitleService) {
   }
   ngOnInit() {
     this.titleService.getTitles().subscribe(
-      (titles) => this.titleList = titles
+      (titles) => this.titleListObserv = titles
     );
-    console.log(this.titleList);
-  }
-   public tests(event) {
-    console.log("dddddd" + event);
-    console.log("dddddd");
-    console.log("dddddd");
-    console.log("dddddd");
-    console.log("dddddd");
-    console.log("dddddd");
-  }
+    
+      for (const [key, value] of Object.entries(this.titleListObserv)) {
+        console.log(value)
+        for(const [keys, val] of Object.entries(value)) {
+          this.results.push(val); 
+        }
+      }
 
+      for (var i = 0; i < this.results.length; i += 2) {
+        this.finalTitlesList.push(this.results[i]);
+      }
+
+  }
 }
 

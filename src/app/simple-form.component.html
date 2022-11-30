@@ -6,7 +6,7 @@
     <div class="multiSelectData">
       <label>Title</label>
       <select>
-        <option value="">-- Select an option --</option>
+        <option value="" *ngFor = "let title of this.finalTitlesList;">{{ title }}</option>
         <!-- TODO: add titles to dropdown -->
       </select>
     </div>
@@ -25,7 +25,7 @@
       <label class="acceptCnd">I accept the terms & conditions</label>
     </div>
     <div>
-      <button (click)='tests($event)'>Submit</button>
+      <button>Submit</button>
     </div>
   </div>
 </form>
