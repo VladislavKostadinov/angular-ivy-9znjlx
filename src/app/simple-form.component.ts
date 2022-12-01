@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { TitleService } from './title.service';
 
 @Component({
@@ -19,10 +19,11 @@ export class SimpleFormComponent {
 
   public userForm: FormGroup;
   public userFirstName = "";
-  public userLastName = "";
+  public userLastName: any = "";
   public userTitle = "";
   public acceptedTerms = "";
   public selectedOptions = "";
+  public lastNameMandatory: any;
 
   constructor(private titleService: TitleService, private fb: FormBuilder) {
     this.userForm = this.fb.group({
@@ -34,12 +35,9 @@ export class SimpleFormComponent {
   }
   ngOnInit() {
 
-    // this.formData = new FormGroup({
-    //   userTitle: new FormControl(),
-    //   userFirstName: new FormControl(),
-    //   userLastName: new FormControl(),
-    //   acceptedTerms: new FormControl()
-    // })
+    this.lastNameMandatory = new FormControl(this.userForm.get("userLastName").value, 
+      Validators.required);
+      console.log(this.lastNameMandatory)
 
     this.titleService
       .getTitles()
