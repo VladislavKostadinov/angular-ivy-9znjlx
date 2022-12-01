@@ -19,10 +19,10 @@
     </div>
     <div class="inputData">
       <label>Last name</label>
-      <input type="text" class="textField" [ngStyle] = "(!this.userForm.get('userLastName').value && this.userForm.get('userLastName').touched) && { 'border-color' : 'red'}" placeholder="Last name"
+      <input type="text" class="textField" [ngStyle] = "((!this.userForm.get('userLastName').value && this.userForm.get('userLastName').touched) || (!this.submitedForm && !this.userForm.get('userLastName').value)) && { 'border-color' : 'red'}" placeholder="Last name"
       name = "userLastName" formControlName = "userLastName"/>
     </div>
-    <div class = "errorMsg" *ngIf = "!this.userForm.get('userLastName').value && this.userForm.get('userLastName').touched">* Last name field is required!</div>
+    <div class = "errorMsg" *ngIf = "(!this.userForm.get('userLastName').value && this.userForm.get('userLastName').touched) || (!this.submitedForm && !this.userForm.get('userLastName').value)">* Last name field is required!</div>
 
     <!-- TODO: add error message -->
     <span></span>
