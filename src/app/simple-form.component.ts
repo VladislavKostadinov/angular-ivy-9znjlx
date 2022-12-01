@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { TitleService } from './title.service';
 
 @Component({
@@ -15,8 +16,29 @@ export class SimpleFormComponent {
   public defCounter: number = 0;
   public wrongTitle = true;
 
-  constructor(private titleService: TitleService) {}
+  public userForm: FormGroup;
+  public userFirstName = "";
+  public userLastName = "";
+  public userTitle = "";
+  public acceptedTerms = "";
+
+  constructor(private titleService: TitleService, private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      userTitle: "",
+      userFirstName: "",
+      userLastName: "",
+      acceptedTerms: ""
+    })
+  }
   ngOnInit() {
+
+    // this.formData = new FormGroup({
+    //   userTitle: new FormControl(),
+    //   userFirstName: new FormControl(),
+    //   userLastName: new FormControl(),
+    //   acceptedTerms: new FormControl()
+    // })
+
     this.titleService
       .getTitles()
       .subscribe((titles) => (this.titleListObserv = titles));
@@ -30,7 +52,6 @@ export class SimpleFormComponent {
 
       for (var i = 0; i < this.results.length; i += 2) {
         this.finalTitlesList.push(this.results[i]);
-        console.log(this.results[i]);
         if (!this.results[i].indexOf("!")) {
           this.finalTitlesList.pop();
         }
@@ -39,13 +60,13 @@ export class SimpleFormComponent {
       for (var i = 1; i < this.results.length; i+= 2) {
         if (this.results[i] === this.wrongTitle) {
           this.defaultTitle = this.results[i-1];
-          console.log(this.defaultTitle + "is")
         }        
       }
     }
 
-    onSubmit(data) {
-      console.log(data.userFirstName);
+    onSubmit() {
+      this.userFirstName = this.userForm.get("userFirstName")?.value;
+      console.log(this.userFirstName);
     }
   }
 

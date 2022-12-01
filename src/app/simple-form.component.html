@@ -2,12 +2,12 @@
   <div class="innerContainer">
 <h1>Aareon Angular Test</h1>
 <form>
-  <div class="form" ngForm #f = "ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div class="form" ngForm [formGroup] = "userForm">
     <div class="multiSelectData">
       <label>Title</label>
       <select class="form-control">
         <option value="" *ngFor = "let title of this.finalTitlesList;"
-        [selected] = "title === defaultTitle" name = "userTitle" ngModel
+        [selected] = "title === defaultTitle" name = "userTitle" formControlName = "userTitle"
         >{{ title }}</option>
         <!-- TODO: add titles to dropdown -->
       </select>
@@ -15,22 +15,22 @@
     <div class="inputData">
       <label>First name</label>
       <input type="text" class="textField" placeholder="First name"
-      name = "userFirstName" ngModel/>
+      name = "userFirstName" formControlName = "userFirstName"/>
     </div>
     <div class="inputData">
       <label>Last name</label>
       <input type="text" class="textField" placeholder="Last name"
-      name = "userLastName" ngModel/>
+      name = "userLastName" formControlName = "userLastName"/>
     </div>
     <!-- TODO: add error message -->
     <span></span>
     <div class="checkBtn">
       <input type="checkbox" class="checkBox"
-      name = "acceptTerms" ngModel/>
+      name = "acceptTerms" formControlName = "acceptedTerms"/>
       <label class="acceptCnd">I accept the terms & conditions</label>
     </div>
     <div>
-      <button>Submit</button>
+      <button (click)="onSubmit()">Submit</button>
     </div>
   </div>
 </form>
