@@ -49,19 +49,16 @@ export class SimpleFormComponent {
       this.userForm.get('userLastName').value,
       Validators.required
     );
-    console.log(this.lastNameMandatory);
 
     this.titleService
       .getTitles()
       .subscribe((titles) => (this.titleListObserv = titles));
 
     for (const [key, value] of Object.entries(this.titleListObserv)) {
-      console.log(value);
       for (const [keys, val] of Object.entries(value)) {
         this.results.push(val);
       }
     }
-    console.log(this.results);
 
     for (var i = 0; i < this.results.length; i += 2) {
       this.finalTitlesList.push(this.results[i]);
@@ -95,7 +92,7 @@ export class SimpleFormComponent {
           'User First Name: ' +
           (this.userFirstName ? this.userFirstName : ' Empty') + '\n' +
           'User Last Name: ' + this.userLastName + '\n' +
-          'Accepter Terms: ' + this.acceptedTerms
+          'Accept Terms: ' + this.acceptedTerms
       );
       } else {
         console.log("Invalid form.")
