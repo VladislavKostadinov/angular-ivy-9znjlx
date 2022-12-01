@@ -38,11 +38,10 @@ export class SimpleFormComponent {
       }
       for (var i = 1; i < this.results.length; i+= 2) {
         if (this.results[i] === this.wrongTitle) {
-          console.log(this.results[i])
+          this.defaultTitle = this.results[i-1];
+          console.log(this.defaultTitle)
         }        
       }
     }
-    // console.log(this.defaultPerson[this.defCounter])
-
   }
 
