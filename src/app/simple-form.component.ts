@@ -31,11 +31,11 @@ export class SimpleFormComponent {
       //   while (va != true) {
       //     this.defCounter++;
       //   }
-      
+      for (var i = 0; i < this.results.length; i += 2) {
+        this.finalTitlesList.push(this.results[i]);
+      }
     }
     // console.log(this.defaultPerson[this.defCounter])
-    // for (var i = 0; i < this.results.length; i += 2) {
-    //   this.finalTitlesList.push(this.results[i]);
-    // }
+
   }
 
