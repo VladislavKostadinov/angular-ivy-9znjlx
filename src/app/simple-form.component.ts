@@ -20,18 +20,18 @@ export class SimpleFormComponent {
       .getTitles()
       .subscribe((titles) => (this.titleListObserv = titles));
 
-    for (const [key, value] of Object.entries(this.titleListObserv)) {
-      console.log(value);
-      for (const [keys, val] of Object.entries(value)) {
-        this.results.push(val);
-      }
-      for (const [ke, va] of Object.entries(value)) {
-        console.log(va);
-        while (va != true) {
-          this.defCounter++;
-        }
-      }
-    }
+    // for (const [key, value] of Object.entries(this.titleListObserv)) {
+    //   console.log(value);
+    //   for (const [keys, val] of Object.entries(value)) {
+    //     this.results.push(val);
+    //   }
+    //   for (const [ke, va] of Object.entries(value)) {
+    //     console.log(va);
+    //     while (va != true) {
+    //       this.defCounter++;
+    //     }
+    //   }
+    // }
     console.log(this.defaultPerson[this.defCounter])
     for (var i = 0; i < this.results.length; i += 2) {
       this.finalTitlesList.push(this.results[i]);
