@@ -24,6 +24,8 @@ export class SimpleFormComponent {
   public acceptedTerms = "";
   public selectedOptions = "";
   public lastNameMandatory: any;
+  
+  public submitedForm: boolean = false;
 
   constructor(private titleService: TitleService, private fb: FormBuilder) {
     this.userForm = this.fb.group({
@@ -71,6 +73,8 @@ export class SimpleFormComponent {
         this.userLastName = this.userForm.get("userLastName")?.value;
         this.acceptedTerms = this.userForm.get("acceptedTerms").value ? this.userForm.get("acceptedTerms")?.value : false ;
         console.log("User title: " + (this.userTitle ? this.userTitle : this.defaultTitle) + "\n" + "User First Name: " + (this.userFirstName ? this.userFirstName : " Empty") + "\n" + "User Last Name: " + this.userLastName + "\n" + "Accepter Terms: " + this.acceptedTerms);
+        this.submitedForm = true;
+
 
 
       }
