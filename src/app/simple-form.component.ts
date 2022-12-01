@@ -33,9 +33,8 @@ export class SimpleFormComponent {
         console.log(this.results[i]);
         if (!this.results[i].indexOf("!")) {
           this.finalTitlesList.pop();
-          this.finalTitlesList.sort();
         }
- 
+        this.finalTitlesList.sort();
       }
       for (var i = 1; i < this.results.length; i+= 2) {
         if (this.results[i] === this.wrongTitle) {
