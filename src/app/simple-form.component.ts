@@ -78,7 +78,7 @@ export class SimpleFormComponent {
       test() {
         this.lastNameMandatory = new FormControl(this.userForm.get("userLastName").value, 
       Validators.required);
-      console.log(this.lastNameMandatory)
+      console.log(this.lastNameMandatory.pristine)
       }
   
   }

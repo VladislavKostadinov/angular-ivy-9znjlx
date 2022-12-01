@@ -15,14 +15,14 @@
     <div class="inputData">
       <label>First name</label>
       <input type="text" class="textField" placeholder="First name"
-      name = "userFirstName" formControlName = "userFirstName"/>
+      name = "userFirstName" formControlName = "userFirstName" (click)="test()"/>
     </div>
     <div class="inputData">
       <label>Last name</label>
       <input type="text" class="textField" placeholder="Last name"
       name = "userLastName" formControlName = "userLastName" (click)="test()"/>
     </div>
-    <div class = "errorMsg" *ngIf = "!lastNameMandatory.value">Last name field is required!</div>
+    <div class = "errorMsg" *ngIf = "!lastNameMandatory.value && this.userForm.get('userLastName').touched">* Last name field is required!</div>
 
     <!-- TODO: add error message -->
     <span></span>
