@@ -87,20 +87,18 @@ export class SimpleFormComponent {
     this.acceptedTerms = this.userForm.get('acceptedTerms').value
       ? this.userForm.get('acceptedTerms')?.value
       : false;
-    console.log(
-      'User title: ' +
-        (this.userTitle ? this.userTitle : this.defaultTitle) +
-        '\n' +
-        'User First Name: ' +
-        (this.userFirstName ? this.userFirstName : ' Empty') +
-        '\n' +
-        'User Last Name: ' +
-        this.userLastName +
-        '\n' +
-        'Accepter Terms: ' +
-        this.acceptedTerms
-    );
+      if (this.submitedForm) {
+        console.log(
+          'User title: ' +
+          (this.userTitle ? this.userTitle : this.defaultTitle) + '\n' +
+          'User First Name: ' +
+          (this.userFirstName ? this.userFirstName : ' Empty') + '\n' +
+          'User Last Name: ' + this.userLastName + '\n' +
+          'Accepter Terms: ' + this.acceptedTerms
+      );
+      } else {
+        console.log("Invalid form.")
+      }
 
-    console.log(this.submitedForm);
   }
 }
