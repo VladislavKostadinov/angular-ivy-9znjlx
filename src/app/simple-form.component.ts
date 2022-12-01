@@ -22,6 +22,7 @@ export class SimpleFormComponent {
   public defCounter: number = 0;
   public titleOptions: any[];
   public wrongTitle = true;
+  public checkBoxStatus: boolean = false;
 
   public userForm: FormGroup;
   public userFirstName = '';
@@ -43,6 +44,7 @@ export class SimpleFormComponent {
     });
   }
   ngOnInit() {
+
     this.lastNameMandatory = new FormControl(
       this.userForm.get('userLastName').value,
       Validators.required
@@ -85,8 +87,7 @@ export class SimpleFormComponent {
     this.userFirstName = this.userForm.get('userFirstName')?.value;
     this.userLastName = this.userForm.get('userLastName')?.value;
     this.acceptedTerms = this.userForm.get('acceptedTerms').value
-      ? this.userForm.get('acceptedTerms')?.value
-      : false;
+      ? this.userForm.get('acceptedTerms')?.value : false;
       if (this.submitedForm) {
         console.log(
           'User title: ' +
@@ -99,6 +100,12 @@ export class SimpleFormComponent {
       } else {
         console.log("Invalid form.")
       }
-
+  }
+  checkBoxToggle(event) {
+    if (event.target.checked) {
+      this.checkBoxStatus = true;
+    } else {
+      this.checkBoxStatus = false;
+    }
   }
 }

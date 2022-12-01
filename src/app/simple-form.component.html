@@ -28,11 +28,13 @@
     <span></span>
     <div class="checkBtn">
       <input type="checkbox" class="checkBox"
-      name = "acceptTerms" formControlName = "acceptedTerms"/>
+      name = "acceptTerms" formControlName = "acceptedTerms"
+      (change) = "checkBoxToggle($event)"/>
       <label class="acceptCnd">I accept the terms & conditions</label>
     </div>
     <div>
-      <button (click)="onSubmit(userForm.value)">Submit</button>
+      <button [disabled] = "!checkBoxStatus" 
+      (click)="onSubmit(userForm.value)">Submit</button>
     </div>
   </div>
 </form>
