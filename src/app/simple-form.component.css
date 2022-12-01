@@ -42,3 +42,8 @@ button {
   float: right;
 }
 
+.errorMsg {
+  margin-top: -8px;
+  float: right;
+  font-size: 13px;
+}

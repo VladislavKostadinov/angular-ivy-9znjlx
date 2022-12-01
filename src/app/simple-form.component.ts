@@ -71,6 +71,14 @@ export class SimpleFormComponent {
         this.userLastName = this.userForm.get("userLastName")?.value;
         this.acceptedTerms = this.userForm.get("acceptedTerms").value ? this.userForm.get("acceptedTerms")?.value : false ;
         console.log("User title: " + (this.userTitle ? this.userTitle : this.defaultTitle) + "\n" + "User First Name: " + (this.userFirstName ? this.userFirstName : " Empty") + "\n" + "User Last Name: " + this.userLastName + "\n" + "Accepter Terms: " + this.acceptedTerms);
+
+
+      }
+
+      test() {
+        this.lastNameMandatory = new FormControl(this.userForm.get("userLastName").value, 
+      Validators.required);
+      console.log(this.lastNameMandatory)
       }
   
   }
