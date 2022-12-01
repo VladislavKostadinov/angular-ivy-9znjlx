@@ -13,6 +13,7 @@ export class SimpleFormComponent {
   public defaultPerson = [];
   public defaultTitle: String = '';
   public defCounter: number = 0;
+  public wrongTitle = true;
 
   constructor(private titleService: TitleService) {}
   ngOnInit() {
@@ -31,8 +32,14 @@ export class SimpleFormComponent {
       //   while (va != true) {
       //     this.defCounter++;
       //   }
+
       for (var i = 0; i < this.results.length; i += 2) {
         this.finalTitlesList.push(this.results[i]);
+      }
+      for (var i = 1; i < this.results.length; i+= 2) {
+        if (this.results[i] === this.wrongTitle) {
+          console.log(this.results[i])
+        }        
       }
     }
     // console.log(this.defaultPerson[this.defCounter])
