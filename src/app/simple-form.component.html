@@ -5,8 +5,10 @@
   <div class="form">
     <div class="multiSelectData">
       <label>Title</label>
-      <select>
-        <option value="" *ngFor = "let title of this.finalTitlesList;">{{ title }}</option>
+      <select class="form-control">
+        <option value="" *ngFor = "let title of this.finalTitlesList;"
+        [selected] = "title === defaultTitle"
+        >{{ title }}</option>
         <!-- TODO: add titles to dropdown -->
       </select>
     </div>
