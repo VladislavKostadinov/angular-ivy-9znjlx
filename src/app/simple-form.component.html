@@ -5,9 +5,9 @@
   <div class="form" ngForm [formGroup] = "userForm">
     <div class="multiSelectData">
       <label>Title</label>
-      <select class="form-control">
-        <option value="" *ngFor = "let title of this.finalTitlesList;"
-        [selected] = "title === defaultTitle" name = "userTitle" formControlName = "userTitle"
+      <select class="form-control" name="selectedTitle" formControlName = "userTitle">
+        <option *ngFor = "let title of this.finalTitlesList;"
+        [selected] = "title === defaultTitle" name = "userTitle" ngDefaultControl 
         >{{ title }}</option>
         <!-- TODO: add titles to dropdown -->
       </select>
@@ -30,7 +30,7 @@
       <label class="acceptCnd">I accept the terms & conditions</label>
     </div>
     <div>
-      <button (click)="onSubmit()">Submit</button>
+      <button (click)="onSubmit(userForm.value)">Submit</button>
     </div>
   </div>
 </form>

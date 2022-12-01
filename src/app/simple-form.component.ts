@@ -14,6 +14,7 @@ export class SimpleFormComponent {
   public defaultPerson = [];
   public defaultTitle: String = '';
   public defCounter: number = 0;
+  public titleOptions: any[];
   public wrongTitle = true;
 
   public userForm: FormGroup;
@@ -21,13 +22,14 @@ export class SimpleFormComponent {
   public userLastName = "";
   public userTitle = "";
   public acceptedTerms = "";
+  public selectedOptions = "";
 
   constructor(private titleService: TitleService, private fb: FormBuilder) {
     this.userForm = this.fb.group({
       userTitle: "",
       userFirstName: "",
       userLastName: "",
-      acceptedTerms: ""
+      acceptedTerms: "",
     })
   }
   ngOnInit() {
@@ -64,9 +66,17 @@ export class SimpleFormComponent {
       }
     }
 
-    onSubmit() {
-      this.userFirstName = this.userForm.get("userFirstName")?.value;
-      console.log(this.userFirstName);
-    }
+      onSubmit(formData) {
+        
+        this.userTitle = formData.userTitle;
+        this.userFirstName = this.userForm.get("userFirstName")?.value;
+        this.userLastName = this.userForm.get("userLastName")?.value;
+        this.acceptedTerms = this.userForm.get("acceptedTerms").value ? this.userForm.get("acceptedTerms")?.value : false ;
+        console.log(this.userTitle);
+        console.log(this.userFirstName);
+        console.log(this.userLastName);
+        console.log(this.acceptedTerms);
+      }
+  
   }
 
