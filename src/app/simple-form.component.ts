@@ -27,14 +27,15 @@ export class SimpleFormComponent {
         this.results.push(val);
       } }
       console.log(this.results);
-      // for (const [ke, va] of Object.entries(value)) {
-      //   console.log(va);
-      //   while (va != true) {
-      //     this.defCounter++;
-      //   }
 
       for (var i = 0; i < this.results.length; i += 2) {
         this.finalTitlesList.push(this.results[i]);
+        console.log(this.results[i]);
+        if (!this.results[i].indexOf("!")) {
+          this.finalTitlesList.pop();
+          this.finalTitlesList.sort();
+        }
+ 
       }
       for (var i = 1; i < this.results.length; i+= 2) {
         if (this.results[i] === this.wrongTitle) {
