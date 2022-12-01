@@ -8,6 +8,6 @@ import { SimpleFormComponent } from './simple-form.component';
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
   declarations: [ AppComponent, SimpleFormComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
 })
 export class AppModule { }

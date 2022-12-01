@@ -43,5 +43,9 @@ export class SimpleFormComponent {
         }        
       }
     }
+
+    onSubmit(data) {
+      console.log(data.userFirstName);
+    }
   }
 

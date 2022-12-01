@@ -2,28 +2,31 @@
   <div class="innerContainer">
 <h1>Aareon Angular Test</h1>
 <form>
-  <div class="form">
+  <div class="form" ngForm #f = "ngForm" (ngSubmit)="onSubmit(f.value)">
     <div class="multiSelectData">
       <label>Title</label>
       <select class="form-control">
         <option value="" *ngFor = "let title of this.finalTitlesList;"
-        [selected] = "title === defaultTitle"
+        [selected] = "title === defaultTitle" name = "userTitle" ngModel
         >{{ title }}</option>
         <!-- TODO: add titles to dropdown -->
       </select>
     </div>
     <div class="inputData">
       <label>First name</label>
-      <input type="text" class="textField" placeholder="First name"/>
+      <input type="text" class="textField" placeholder="First name"
+      name = "userFirstName" ngModel/>
     </div>
     <div class="inputData">
       <label>Last name</label>
-      <input type="text" class="textField" placeholder="Last name"/>
+      <input type="text" class="textField" placeholder="Last name"
+      name = "userLastName" ngModel/>
     </div>
     <!-- TODO: add error message -->
     <span></span>
     <div class="checkBtn">
-      <input type="checkbox" class="checkBox"/>
+      <input type="checkbox" class="checkBox"
+      name = "acceptTerms" ngModel/>
       <label class="acceptCnd">I accept the terms & conditions</label>
     </div>
     <div>
